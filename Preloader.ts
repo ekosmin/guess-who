@@ -7,6 +7,8 @@ module Main {
         preload() {
             this.load.image('level1', 'assets/level1.png');
             this.load.image('button', 'assets/button.png');
+            this.load.image('cross', 'assets/cross.png')
+
             this.load.audio('ALEX', 'assets/ALEX.m4a');
 
             for (var name in Name) {

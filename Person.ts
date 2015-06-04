@@ -11,22 +11,34 @@ module Main {
         private level: Level;
         private sound: Phaser.Sound;
         private button: Button;
+        private cross: Phaser.Sprite;
 
         constructor(level: Level, nameIndex: number, x: number, y: number) {
             super(level.game, x, y, Person.checkSpriteIndex(nameIndex), 0);
+            this.level = level;
             this.width = Person.WIDTH;
             this.height = Person.HEIGHT;
             this.sound = level.game.add.audio(Person.checkSpriteIndex(nameIndex));
 
-            this.button = new Button(level, this);
-            level.buttons.add(this.button);
+            this.createChildren();
 
             this.inputEnabled = true;
             this.events.onInputDown.add(this.playSound, this);
         }
 
         public toggleVisible(): void {
-            this.visible = !this.visible;
+            this.cross.visible = !this.cross.visible;
+        }
+
+        private createChildren(): void {
+            this.cross = this.level.add.sprite(this.x, this.y, 'cross');
+            this.cross.width = this.width;
+            this.cross.height = this.width;
+            this.cross.y += (this.height - this.cross.height)/2;
+            this.cross.visible = false;
+
+            this.button = new Button(this.level, this);
+            this.level.buttons.add(this.button);
         }
 
         private playSound(): void {
