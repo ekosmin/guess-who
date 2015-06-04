@@ -8,7 +8,7 @@ module Main {
 
         constructor() {
 
-            super(1201, 700, Phaser.AUTO, 'content', null);
+            super(1200, 700, Phaser.AUTO, 'content', null);
 
             this.state.add('Boot', Boot, false);
             this.state.add('Preloader', Preloader, false);

@@ -5,7 +5,12 @@ module Main {
 
 
         preload() {
-            this.load.image('level1', 'assets/Alex.png');
+            this.load.image('level1', 'assets/level1.png');
+            for (var name in Name) {
+                if (isNaN(parseInt(name))) {
+                    this.load.image(name, 'assets/' + name + '.png');
+                }
+            }
         }
 
         create() {
