@@ -12,9 +12,7 @@ module Main {
         private static COLS: number = 8;
 
         create() {
-            this.background = this.add.sprite(0, 0, 'level1');
-            this.background.width = this.game.world.width;
-            this.background.height = this.game.world.height;
+            this.game.stage.backgroundColor = '#777777';
 
             this.faces = this.add.group();
             this.buttons = this.add.group();
