@@ -17,8 +17,8 @@ module Main {
             return lastButton.y + lastButton.height;
         }
 
-        private static getStyle(): void {
-            return { font: "32px Arial", fill: "#FFFFFF", align: "center",
+        private static getStyle() {
+            return {font: "32px Arial", fill: "#FFFFFF", align: "center",
                 wordWrap: true, wordWrapWidth: Game.WIDTH - Console.MARGINS * 2};
         }
 

@@ -13,6 +13,7 @@ module Main {
         private sound: Phaser.Sound;
         private button: Button;
         private cross: Phaser.Sprite;
+        private portraitName: Name;
 
         constructor(level: Level, nameIndex: number, x: number, y: number) {
             super(level.game, x, y, Person.checkSpriteIndex(nameIndex), 0);
@@ -20,11 +21,20 @@ module Main {
             this.width = Person.WIDTH;
             this.height = Person.HEIGHT;
             this.sound = level.game.add.audio(Person.checkSpriteIndex(nameIndex));
+            this.portraitName = nameIndex;
 
             this.createChildren();
 
             this.inputEnabled = true;
             this.events.onInputDown.add(this.playSound, this);
+        }
+
+        public getName(): Name {
+            return this.portraitName;
+        }
+
+        public isVisible(): boolean {
+            return !this.cross.visible;
         }
 
         public toggleVisible(): void {

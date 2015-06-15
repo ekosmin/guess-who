@@ -10,6 +10,8 @@ module Main {
         public console: Console;
         public guesser: Guesser;
 
+        public nameToPerson = {};
+
         private background: Phaser.Sprite;
 
         private static COLS: number = 8;
@@ -47,7 +49,9 @@ module Main {
 
             var x: number = col * Person.WIDTH * 1.5;
             var y: number = row * Person.HEIGHT * 1.5;
-            this.faces.add(new Person(this, index, x, y));
+            var person = new Person(this, index, x, y);
+            this.faces.add(person);
+            this.nameToPerson[person.getName()] = person;
         }
 
         private restart(): void {
