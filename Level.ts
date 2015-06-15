@@ -1,11 +1,14 @@
 ///<reference path="phaser/typescript/phaser.d.ts"/>
 ///<reference path="Person.ts"/>
+///<reference path="Guesser.ts"/>
 module Main {
 
     export class Level extends Phaser.State {
 
         public faces: Phaser.Group;
         public buttons: Phaser.Group;
+        public console: Console;
+        public guesser: Guesser;
 
         private background: Phaser.Sprite;
 
@@ -13,6 +16,8 @@ module Main {
 
         create() {
             this.game.stage.backgroundColor = '#777777';
+
+            var levelGroup: Phaser.Group = this.game.add.group();
 
             this.faces = this.add.group();
             this.buttons = this.add.group();
@@ -23,6 +28,14 @@ module Main {
                     this.placePerson(nameIndex);
                 }
             }
+
+            // Create console here to properly place text after buttons
+            this.console = new Console(this);
+            this.guesser = new Guesser(this);
+
+            levelGroup.add(this.faces);
+            levelGroup.add(this.buttons);
+            levelGroup.add(this.console);
 
             var key1 = this.game.input.keyboard.addKey(Phaser.Keyboard.R);
             key1.onDown.add(this.restart, this);

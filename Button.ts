@@ -11,8 +11,8 @@ module Main {
         constructor(level: Level, person: Person) {
             super(level.game, 0, 0, 'button', 0);
             this.level = level;
-            this.width = this.width/7;
-            this.height = this.height/7;
+            this.width = this.width/8;
+            this.height = this.height/8;
 
             this.person = person;
             this.x = person.x + (person.width - this.width)/2;

@@ -1,12 +1,13 @@
 ///<reference path="phaser/typescript/phaser.d.ts"/>
 ///<reference path="Level.ts"/>
 ///<reference path="Button.ts"/>
+///<reference path="Traits.ts"/>
 module Main {
 
     export class Person extends Phaser.Sprite {
 
-        public static HEIGHT: number = 150;
-        public static WIDTH: number = 100;
+        public static HEIGHT: number = 135;
+        public static WIDTH: number = 90;
 
         private level: Level;
         private sound: Phaser.Sound;
@@ -66,4 +67,5 @@ module Main {
         CLAIRE, PAUL, BILL, DAVID, BERNARD,
         GEORGE, TOM, HERMAN, ANNE
     }
+
 }

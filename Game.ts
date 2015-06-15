@@ -6,9 +6,12 @@ module Main {
 
     export class Game extends Phaser.Game {
 
+        public static WIDTH = 1050;
+        public static HEIGHT = 700;
+
         constructor() {
 
-            super(1200, 700, Phaser.AUTO, 'content', null);
+            super(Game.WIDTH, Game.HEIGHT, Phaser.AUTO, 'content', null);
 
             this.state.add('Boot', Boot, false);
             this.state.add('Preloader', Preloader, false);
